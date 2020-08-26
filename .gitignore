@@ -1,0 +1,8 @@
+.ipynb_checkpoints/
+*.ipynb
+
+mlruns/
+_build/
+.idea/
+
+*.png
