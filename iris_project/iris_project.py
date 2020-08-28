@@ -83,13 +83,17 @@ if __name__ == "__main__":
     svc_pars = dict(kernel='rbf', random_state=0, gamma=.10, C=1.0)
     knn_pars = dict(n_neighbors=5, p=2, metric='minkowski')
 
-    algo = 'svc'
+    algo = 'knn'
+    notes = "I think an knn will work better"
 
-    with mlflow.start_run():
+    mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
+    mlflow.set_experiment('iris')
+
+    run_name = f'iris_{algo}'
+
+    with mlflow.start_run(run_name=run_name):
         X_train, X_test, y_train, y_test = get_data()
         X_train, X_test = feature_engineering(X_train, X_test)
-
-
 
         if algo == 'svc':
             params = svc_pars
@@ -118,4 +122,6 @@ if __name__ == "__main__":
         plot_filename = 'decision_region.png'
         plt.savefig(plot_filename)
         mlflow.log_artifact(plot_filename, 'figures')
+
+        mlflow.set_tag('mlflow.note.content', notes)
 

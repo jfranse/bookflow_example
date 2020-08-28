@@ -1,6 +1,8 @@
-file: markdown
-sections:
-- file: iris
-- file: notebooks
-- file: content
-- file: intro
+- file: bookflow
+
+- file: primer_mlflow
+
+- file: intro_report
+  sections:
+  - file: iris
+  - file: lab_journal_iris
