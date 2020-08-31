@@ -1,7 +1,9 @@
 # Book settings
-title: My sample book
-author: The Jupyter Book Community
-logo: logo.png
+title: BookFlow
+author: Jeroen Franse
+#logo: logo.png
+
+exclude_patterns: [iris_with_utils.*]
 
 latex:
   latex_documents:

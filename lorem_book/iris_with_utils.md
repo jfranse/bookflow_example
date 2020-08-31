@@ -12,6 +12,14 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+%load_ext autoreload
+%autoreload 2
+%autosave 0
+```
+
 (iris)=
 # A Research Report on the Iris Dataset
 
@@ -19,28 +27,22 @@ kernelspec:
 
 This is an example of a document that automatically updates when you execute new code runs. This updating happens when you build your book. 
 
-What you see on this page by default is only the output, the way you would want a document to show up like. However, you will also see, for the purposes of this example, buttons marked 'click to show', which will show you the code that was used to enable this auto-updating from runs. 
-
-You see that the basic code is quite straightforward. The next section on this page is the exact same thing again, but then using some helper utilities that you can find in the repo.
+What you see on this page by default is only the autoput, the way you would want a document to show up like. However, you will also see, for the purposes of this example, buttons marked 'click to show', which will show you the code that was used to enable this auto-updated from runs. 
 
 ```{code-cell} ipython3
-%autosave 0
-import mlflow
+:tags: [remove-cell]
+
 from myst_nb import glue
-import pandas as pd
+from bookflow_utils.mlflow_to_book import BookflowConfig, BookflowHelper
+config_file = '../project_config.yaml'
+config = BookflowConfig(config_file)
+helper = BookflowHelper(config)
 
-mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
-experiment_name = 'iris'
-exp_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
-
-latest_run = mlflow.get_run(mlflow.search_runs(experiment_ids=[exp_id], max_results=1).loc[0].run_id)
+latest_run = helper.get_latest_run()
 
 glue('algo', latest_run.data.params['algo'])
 glue('acc', latest_run.data.metrics['acc_test'])
-
-params = {k:v for k, v in latest_run.data.params.items()}
-param_df = pd.DataFrame(params.items(), columns=['Parameter','Value'])
-
+param_df = helper.get_params_as_df(latest_run)
 glue('params', param_df, display=False)
 ```
 
@@ -69,7 +71,7 @@ We achieve an accuracy of {glue:text}`acc:.2f` on the test data. The decision bo
 :tags: [hide-cell]
 
 from PIL import Image
-im = Image.open(f'/home/jeroenf/Projects/bookflow/iris_project/mlruns/{exp_id}/{latest_run.info.run_id}/artifacts/figures/decision_region.png')
+im = Image.open(f'/home/jeroenf/Projects/bookflow/iris_project/mlruns/{helper.experiment_id}/{latest_run.info.run_id}/artifacts/figures/decision_region.png')
 glue('pil_image', im, display=False)
 ```
 

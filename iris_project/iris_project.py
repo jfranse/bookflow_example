@@ -85,6 +85,7 @@ if __name__ == "__main__":
 
     algo = 'knn'
     notes = "I think an knn will work better"
+    tags = {"valid": True}
 
     mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
     mlflow.set_experiment('iris')
@@ -124,4 +125,6 @@ if __name__ == "__main__":
         mlflow.log_artifact(plot_filename, 'figures')
 
         mlflow.set_tag('mlflow.note.content', notes)
+        for key, value in tags.items():
+            mlflow.set_tag(key, value)
 

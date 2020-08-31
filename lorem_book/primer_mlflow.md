@@ -12,9 +12,10 @@ kernelspec:
   name: python3
 ---
 
+(mlflow-primer)=
 # MLFlow Primer
 
-So after `pip install mlflow` you can track the runs of your code like so:
+So after `pip install mlflow`  you can track the runs of your code like so:
 
 ```{code-cell} ipython3
 :tags: [remove-output]
@@ -115,6 +116,7 @@ algo = 'knn'
 
 # set some mlflow thingamajigs
 notes = "I think an knn will work better" #free text to save with a run
+tags = {"test": True} # define your own tags as well
 # location to save the run data
 mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
 # name of my experiment(= grouping of runs)
@@ -168,6 +170,8 @@ with mlflow.start_run(run_name=run_name) as run:
     # and also apply some tags to this run
     # the content tag is a special one
     mlflow.set_tag('mlflow.note.content', notes)
+    for key, value in tags.items():
+        mlflow.set_tag(key, value)
 ```
 
 You don't see it here, but this run is now saved by mlflow. You can query all the runs through the python API (which we will do in the next section), but there is also an UI where you can view them conveniently.

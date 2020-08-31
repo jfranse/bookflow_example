@@ -1,8 +1,6 @@
 - file: bookflow
 
 - file: primer_mlflow
-
-- file: intro_report
-  sections:
-  - file: iris
-  - file: lab_journal_iris
+- file: guide
+- file: iris
+- file: lab_journal_iris
