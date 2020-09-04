@@ -3,8 +3,6 @@ title: BookFlow
 author: Jeroen Franse
 #logo: logo.png
 
-exclude_patterns: [iris_with_utils.*]
-
 latex:
   latex_documents:
     targetname: book.tex

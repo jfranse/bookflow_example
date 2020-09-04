@@ -3,7 +3,7 @@
 This is what I've been looking for, for the past eight years. I dub thee "BookFlow"! A combination of the recently released Jupyter-book and MLFlow. Don't be fooled though, this is not just useful for machine learning practitioners, but for anyone that works with both code and data. Data scientists, academics, analysts and statisticians in any field. 
 
 ```{margin}
-Also something to get out of the way asap, is that everything I'm going to show you can also be done with *R bookdown* instead! Yes, that has existed for much longer already and has all the same essential features. Yet somehow jupyter-book just seems a little bit of a smoother experience to me after a little playing around with both, and it just made me that bit more ethusiastic and here we are. 
+Also something to get out of the way asap, is that everything I'm going to show you can also be done with **R bookdown** instead! Yes, that has existed for much longer already and has all the same essential features. Yet somehow jupyter-book just seems a little bit of a smoother experience to me after a little playing around with both, and it just made me that bit more ethusiastic and here we are. 
 
 Actually, this type of 'side-note' or 'margin' is not available in all bookdown styles, maybe that's why I like jupyter-book better. 
 ```
@@ -12,7 +12,7 @@ The goal of BookFlow is to have both your runs and your documents in version con
 
 1. Never having to manually update the numbers, tables and figures in your papers or reports after you've made a change in your code and your results changed. 
 1. You are always sure that the numbers, tables and figures in your documents match with your most recent run.
-1. In fact we will _track_ which code and runs created which versions of the documents. Never will you be in doubt when someone asks you "are these the most recent numbers?". And when someone shows you an old report and asks you pesky questions, you will know exactly how old it is and what's wrong with it.
+1. In fact we will _track_ which code and which runs created which versions of the documents. Never will you be in doubt when someone asks you "are these the most recent numbers?". And when someone shows you an old report and asks you pesky questions, you will know exactly how old it is and what's wrong with it.
 1. If needed you can always reproduce the code and the results of any old report.
 1. Obviously, your documents are version controlled, so that makes editing and collaborating much easier.
 
@@ -24,7 +24,7 @@ All of this is actually really quite easy to set up. Just a couple pip installs 
 Please fin the documentation for both [jupyter-book](https://jupyterbook.org/intro.html) and [bookdown](https://bookdown.org/yihui/bookdown/). As I said, they are very similar, and you can use both R and Python (and more) in both of them. Note that I'm doing everything on a linux machine.
 ```   
 
-Jupyter-book (and R bookdown) have many awesome features, which I encourage you to check out, but I will avoid talking about them if they are not directly and specifically relevant to BookFlow. 
+Jupyter-book (and the similar R Bookdown) have many awesome features, which I encourage you to check out, but I will avoid talking about them if they are not directly and specifically relevant to BookFlow. 
 
 ## Why do you need all of this? 
 

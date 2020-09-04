@@ -1,2 +1,4 @@
 tracking_uri: '/home/jeroenf/Projects/bookflow/iris_project/mlruns'
 experiment_name: 'iris'
+default_valid_run_tag:
+  valid: 'True'

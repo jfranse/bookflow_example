@@ -18,6 +18,8 @@ Creating a new MyST page for your book:
 1. In your notebook interface, go to File > Jupytext > Pair notebook with MyST markdown. This will create a markdown file in the same folder with the same name as the notebook (apart from the extension).
 1. You can now also open the .md file in your favorite IDE if you want to.  
 1. Add `%autosave 0` to the top of your notebook, to prevent your IDE and jupyter notebook from trying to save to the same file simultaneously.
+1. From now on, whenever you save your jupyter notebook (.ipynb), jupytext will sync it with the MyST file (.md), and vice versa. 
+1. Add _only_ the MyST file (.md) to your git. Because of the syncing, if you pull a change to your MyST file, the jupyter-notebook will be automatically updated as well.
 
 ## The BookFlow
 This is what your day-to-day work with BookFlow with look like
@@ -25,8 +27,12 @@ This is what your day-to-day work with BookFlow with look like
 1. Run your code. This results in a run being logged to MLFlow. 
 1. Build your book `jupyter-book build mybookname`
 
+That's it. Now your "book" (or paper, or report) is updated with all the results from the latest run. Keep repeating. When you want to change something about your book, perform the build command again. 
+
 ```{tip}
-Remember to keep code runners seperate from your book; firstly, this way you don't have to re-run your code when you change something about your book, and secondly then MLFlow is able to log the git-commit-hash of the code you are using. 
+Remember to keep code runners seperate from your book. Firstly, this way you don't have to re-run your code when you change something about your book. Secondly, MLFlow will log the git commit hash of the code to the run, so it's cleaner if you seperate commits to the code runners and commits to the book.
 ```
 
-That's it. Now you "book" (or paper, or report) is updated with all the results from the latest run. Keep repeating. When you want to change something about your book, perform the build command again. 
+## Tips and Tricks
+
+- static page versus pdf versus latex

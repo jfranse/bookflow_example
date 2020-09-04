@@ -24,6 +24,8 @@ What you see on this page by default is only the output, the way you would want 
 You see that the basic code is quite straightforward. The next section on this page is the exact same thing again, but then using some helper utilities that you can find in the repo.
 
 ```{code-cell} ipython3
+:tags: [hide-cell, remove-output]
+
 %autosave 0
 import mlflow
 from myst_nb import glue
@@ -38,8 +40,7 @@ latest_run = mlflow.get_run(mlflow.search_runs(experiment_ids=[exp_id], max_resu
 glue('algo', latest_run.data.params['algo'])
 glue('acc', latest_run.data.metrics['acc_test'])
 
-params = {k:v for k, v in latest_run.data.params.items()}
-param_df = pd.DataFrame(params.items(), columns=['Parameter','Value'])
+param_df = pd.DataFrame(latest_run.data.params.items(), columns=['Parameter','Value'])
 
 glue('params', param_df, display=False)
 ```
@@ -90,10 +91,7 @@ latest_run
 
 import time
 
-try:
-    commit_hash = latest_run.data.tags['mlflow.source.git.commit']
-except:
-    commit_hash = 'N/A'
+commit_hash = latest_run.data.tags.get('mlflow.source.git.commit', 'N/A')
 run_id = latest_run.info.run_id
 run_end_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(latest_run.info.end_time/1000.))
 internal_meta_data = dict(
