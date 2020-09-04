@@ -3,7 +3,4 @@
 - file: primer_mlflow
 - file: guide
 - file: iris
-  sections:
-  - file: iris_with_utils
-- file: lab_journal_iris
 
