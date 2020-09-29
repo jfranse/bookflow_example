@@ -41,6 +41,16 @@ Remember to keep code runners seperate from your book. Firstly, this way you don
 ### PDF and LaTeX
 The default output format of Jupyter Book is the html page you are probably look at now. For PDF and Latex, see <https://jupyterbook.org/advanced/pdf.html>, but here's the essentials:
 
-- pdf: to setup once on your system run `pip install pyppeteer & pyppeteer-install`, then `jupyter-book build mybook/ --builder htmlpdf` 
+- **pdf straight from html**: to setup once on your system run `pip install pyppeteer & pyppeteer-install`, then `jupyter-book build mybook/ --builder htmlpdf` 
+- **pdf through Latex**: if you have a Latex installation, simply do `jupyter-book build mybook/ --builder pdflatex`
+
+PDF ouput is still work in progress from Jupyter Book and not that stable. I personally think the Latex PDF looks better, but it's difficult to create a document that can build consistent-looking html pages and pdf latex both from the same source. Unfortunately I haven't found if it's possible to apply your own latex pre-amble to any build, and this would definitely be a requirement for me.   
+
+#### [TODO] my own problems with this:
+There's some strange stuff going on with latex and section hierarchy.
+Apparently, the first file is treated specially, causing all subsequent files to be subsections of the last section of the first file.
+I have not found a way yet that can create reasonable latexpdf AND html output at the same time.
+
+ 
 
  

@@ -1,4 +1,7 @@
+- file: title
 - file: bookflow
+  sections:
+    - file: bookflow_cntd
 - file: primer_mlflow
 - file: guide
 - file: iris
