@@ -2,7 +2,7 @@
 
 This is something I've been wanting to create for a long time. Only this year I've really started looking into it, and quite recently my enthusiasm was sparked anew by the release of Jupyter Book. So here it is, and I dub thee "BookFlow"!
 
-BookFlow is a combination of a certain workflow and some tools. The guide that you are reading now will use MLFlow and Jupyter Book. In the future I may extend it with alternative - in particular R Bookdown. 
+BookFlow is a combination of a certain workflow and some tools. The guide that you are reading now will use MLFlow and Jupyter Book. I am also working on a version with MLFlow and R Bookdown. This Jupyter Book version is a bit of a smoother experience I think and has a lot of cool and powerful features, as long as you stick to the html output. It can also output pdf and Latex, but if those are your primary formats you should go for R Bookdown because that looks better and gives you way more control (R Bookdown also has additional formats over Jupyter Book). Otherwise all the principles are the same. 
 
 ```{margin}
 **R Bookdown** has existed for quite a while now, and is very powerful. It can do all the essential things that I will do here with Jupyter Book as well. Also note that either tool can use either language, although not all Jupyter Book functionality is available for R yet. I'm using Jupyter Book because I feel the experience is just a little bit smoother, and because I was excited to do something with Jupyter Book.

@@ -4,8 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -21,7 +21,7 @@ This is an example of a document that automatically updates when you execute new
 
 What you see on this page by default is only the output, the way you would want a document to show up like. However, you will also see, for the purposes of this example, buttons marked 'click to show', which will show you the code that was used to enable this auto-updating from runs. 
 
-You see that the basic code is quite straightforward. Even so, I'm working on a set of helper utilities to make it even smoother, you can take a sneak peak on the next page. 
+You see that the basic code is quite straightforward. Even so, I'm working on a set of helper utilities to make it even smoother, you can take a sneak peak on the next page.
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]

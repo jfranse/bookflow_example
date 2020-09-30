@@ -9,9 +9,11 @@
 
 ## Literal Programming
 
-Literal Programming (sometimes also known as Literal Statistical Programming) is the principle that your code and your documentation are in the same place. Yes, notebooks (mathematica and jupyter) are examples of this. 
+Literal Programming (sometimes also known as Literal Statistical Programming) is the principle that your code and documentation are the same file, and specifically that the document is written in natural language following human logical flow, interspersed with the code. Yes, notebooks (mathematica and jupyter) are examples of this. 
 
-I am a big fan of this principle, but in practice jupyter notebooks are just not that great as soon as either the code or the document becomes large. 
+The principle is very elegant and makes a lot of sense. It forces one to think and reason 'out-loud' about their code, and produces the best possible documentation pretty much by definition. However in practice jupyter notebooks are just not that great as soon as either the code or the document become large.
+
+It therefore pains me a little bit that BookFlow very deliberately separates the code and the document, ironically using a literal programming tool to move even further away from it. But it does provide some clear advantages, and most people don't practice literal programming anyway. This is a subject, however, that I might return to. 
 
 ## Slides and presentations
 
