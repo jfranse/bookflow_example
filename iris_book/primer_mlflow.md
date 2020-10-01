@@ -4,8 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -15,14 +15,34 @@ kernelspec:
 (mlflow-primer)=
 # MLFlow Primer
 
-So after `pip install mlflow`  you can track the runs of your code like so:
+So after `pip install mlflow`  you can track the runs of your code by inserting a few extra lines. This following is not a full tutorial of course, just something quick to show the basic and convince you it's easy to work with.
+
+MLFlow is organized into 'experiments', which are essentially just collections of runs. One run is one execution of your code. MLFlow tracks a bunch of metadata automatically, and in addition you can store basically whatever you want in a run. MLFlow uses a number of concepts to seperate information logically and displays them in different ways: 'parameters' (inputs), 'metrics' (outputs), 'tags' (labels) and 'artifacts' (files).
+
+Once your runs are stored, you can view them either through the UI or the API. We won't use the UI in this guide, because we need to access the stored runs programmatically through the API, but the UI is very useful and trivial to run (checkout the MLFlow docs). 
+
+The skeleton of the MLFlow code to be inserted basically looks like this:
+
++++
+
+```python
+import mlfow
+
+mlflow.start_run():
+    mlflow.log_param('param_1', 3.14)
+    mlflow.log_metric('answer', 42)
+    mlflow.log_artifact('figure.png')
+```
+
++++
+
+Below, you will see a more elaborate and realistic example. (note that not all dependent functions are shown)
 
 ```{code-cell} ipython3
-:tags: [remove-output]
+:tags: [remove-cell]
 
 # prevent jupyter and your IDE from trying to make simultaneous changed
 %autosave 0
-import mlflow
 ```
 
 ```{code-cell} ipython3
@@ -38,6 +58,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
 
+import mlflow
 import mlflow.sklearn
 
 def get_data():
@@ -109,15 +130,19 @@ def train_svc(data, target, **params):
 ```{code-cell} ipython3
 :tags: [remove-output]
 
+import mlflow
+
 # set up some parameters for my code
 svc_pars = dict(kernel='rbf', random_state=0, gamma=.10, C=1.0)
 knn_pars = dict(n_neighbors=5, p=2, metric='minkowski')
 algo = 'knn'
 
-# set some mlflow thingamajigs
-notes = "I think an knn will work better" #free text to save with a run
-tags = {"test": True} # define your own tags as well
-# location to save the run data
+# some free text that you can save with a run
+notes = "I think an knn will work better" 
+# you can define your own tags as well. In this case, 
+# I'm reminding myself that this is not a serious run (but a test for example)
+tags = {"valid": False} 
+# set location to save the run data
 mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
 # name of my experiment(= grouping of runs)
 mlflow.set_experiment('iris')

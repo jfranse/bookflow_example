@@ -83,8 +83,8 @@ if __name__ == "__main__":
     svc_pars = dict(kernel='rbf', random_state=0, gamma=.10, C=1.0)
     knn_pars = dict(n_neighbors=5, p=2, metric='minkowski')
 
-    algo = 'knn'
-    notes = "I think an knn will work better"
+    algo = 'svc'
+    notes = "first try at SVC, because I read in the literature it could be better in my case"
     tags = {"valid": True}
 
     mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')

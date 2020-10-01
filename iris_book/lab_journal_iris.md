@@ -4,8 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -39,13 +39,15 @@ glue('lab_exp_name', helper.experiment_name)
 ```
 
 (labjournal)=
-# Lab Journal - Experiment: {glue:}`lab_exp_name`
+## Lab Journal - Experiment: {glue:}`lab_exp_name`
 
 This is another possibility that presents itself by using BookFlow: a lab journal. Here, we automatically generate a journal of the logged runs, by date and time with the pertinent information. This view is, in my opinion, more useful (quicker) for getting a good sense of what you've been doing lately and why, than the default MLFlow UI. 
 
-We show the date and run name as the main header, followed by the note. Obviously this requires that you actually put in some useful information in the note. To make a lab journal useful, it would be along the lines of "I changed this and that in the code, and this parameter, which I did for there reasons and now I'm expecting the following to happen". We also show the main parameters and the main metrics.
+We show the date and run name as the main header, followed by the note. Obviously this requires that you actually put in some useful information in the note. To make a lab journal useful, it would be along the lines of "I changed this and that in the code, and this parameter, which I did for these reasons and now I'm expecting the following to happen". We also show the main parameters and the main metrics.
 
 Further we then provide a fold-out section for the full parameters and metrics, and figures and tables. This puts a lot of information at first glance, and much more information at a single mouse-click, without cluttering the view, or having to go back-and-forth between MLFlow pages.
+
+The code to create a single entry here isn't really different from any of the other things we already did. However, you would never write the entries one-by-one yourself, obviously. The point would be to write a script to generate it for you, based on your MLFlow tracker. This is a work in progress effort. It is a bit hacky and I guess it would be better to just extend the MLFlow UI, but I don't know how to do that. I invite you to beat me to it! :)
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -78,7 +80,9 @@ def journal_entry(run, entry_num):
         )
     parameters_table = (pd.DataFrame(run.data.params.items(), columns=['Parameter','Value']).
                         set_index('Parameter', drop=True).transpose())
-    return header, parameters_table
+    metrics_table = (pd.DataFrame(run.data.metrics.items(), columns=['Metric','Value']).
+                        set_index('Metric', drop=True))
+    return header, parameters_table, metrics_table
 ```
 
 ```{code-cell} ipython3
@@ -86,12 +90,12 @@ def journal_entry(run, entry_num):
 
 entry_num = 1
 
-header, params = journal_entry(latest_run, entry_num)
+header, params, metrics = journal_entry(latest_run, entry_num)
 
 glue(f'dt_{entry_num}', header['datetime'])
 glue(f'name_{entry_num}', header['run_name'])
 glue(f'description_{entry_num}', header['description'])
-
+glue(f'acc_{entry_num}', metrics.loc['acc_test'].values[0])
 glue(f'lab_params_{entry_num}', params.transpose())
 ```
 
@@ -104,7 +108,7 @@ im = Image.open(im_uri)
 glue(f'lab_image_{entry_num}', im, display=False)
 ```
 
-### {glue:text}`dt_1` -- {glue:}`name_1`
+### {glue:text}`dt_1` -- {glue:}`name_1` -- Acc = {glue:text}`acc_1:.3f`
 > {glue:text}`description_1`
 
 +++
@@ -130,10 +134,6 @@ params
 # or I can glue the figure within a toggle
 ```
 
-
-
-+++
-
 ````{admonition} Figures
 :class: dropdown
 ```{glue:figure} lab_image_1
@@ -141,3 +141,66 @@ params
 Decision regions.
 ```
 ````
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+latest_run = helper.get_latest_run(tags={'knn':'True'})
+
+entry_num = 2
+
+header, params, metrics = journal_entry(latest_run, entry_num)
+
+glue(f'dt_{entry_num}', header['datetime'])
+glue(f'name_{entry_num}', header['run_name'])
+glue(f'description_{entry_num}', header['description'])
+glue(f'acc_{entry_num}', metrics.loc['acc_test'].values[0])
+glue(f'lab_params_{entry_num}', params.transpose())
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+from PIL import Image
+im_uri = f'/home/jeroenf/Projects/bookflow/iris_project/mlruns/{helper.experiment_id}/{latest_run.info.run_id}/artifacts/figures/decision_region.png'
+im = Image.open(im_uri)
+glue(f'lab_image_{entry_num}', im, display=False)
+```
+
+### {glue:text}`dt_2` -- {glue:}`name_2` -- Acc is {glue:text}`acc_2:.3f`
+> {glue:text}`description_2`
+
++++
+
+`````{margin}
+````{admonition} Parameters
+:class: dropdown
+```{glue:figure} lab_params_2
+```
+````
+`````
+
+```{code-cell} ipython3
+:tags: [remove-input, hide-output, remove-cell]
+
+# I can insert it right here as output of a code cell if I want
+params
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# or I can glue the figure within a toggle
+```
+
+````{admonition} Figures
+:class: dropdown
+```{glue:figure} lab_image_2
+:name: decision region 2
+Decision regions.
+```
+````
+
+```{code-cell} ipython3
+
+```

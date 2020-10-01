@@ -4,8 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -21,11 +21,15 @@ kernelspec:
 ```
 
 (report_with_utils)=
-# Same report but using Bookflow_utils
+# Example report with Bookflow_utils
 
 +++
 
-This is the same example as in the previous section, but now we are using the helper package. It's a little quicker to write if you want to do standard stuff. 
+This is the same example as in the previous section, but now we are using the helper package. It's a little quicker to write if you want to do standard stuff.
+
+```{warning}
+The package bookflow_utils is a work in progress, and and proper guide to using it will also follow.
+```
 
 This is an example of a document that automatically updates when you execute new code runs. This updating happens when you build your book. 
 
@@ -83,15 +87,15 @@ Here we show the decision regin of our {glue:text}`algo2` model.
 helper.glue_model_reference_metadata('int_meta_data2')
 ```
 
-```{code-cell} ipython3
-
-```
-
 ## Appendix
 ### Internal Metadata
 
-Here we include metadata about the run whose details were included in the above document. This is useful information for cross-referencing when in the future you or someone else reads, for example, an old version of this document.
+Here we include metadata about the run whose details were included in the above document. This is useful information, for example, for cross-referencing or reproducibility when in the future you or someone else reads an old version of this document.
 
 ```{glue:figure} int_meta_data2
 :name: int_meta_data2
+```
+
+```{code-cell} ipython3
+
 ```
