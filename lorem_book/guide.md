@@ -28,13 +28,16 @@ This is what your day-to-day work with BookFlow with look like
 1. Run your code. This results in a run being logged to MLFlow. 
 1. Build your book `jupyter-book build mybookname`
 
-That's it. Now your "book" (or paper, or report) is updated with all the results from the latest run. Keep repeating. When you want to change something about your book, perform the build command again. 
+That's it. Now your "book" (or paper, or report) is updated with all the results from the latest run. Keep repeating. When you want to change something about your book, you can perform the build command again without needing to rerun the code. 
 
 ```{tip}
 Remember to keep code runners seperate from your book. Firstly, this way you don't have to re-run your code when you change something about your book. Secondly, MLFlow will log the git commit hash of the code to the run, so it's cleaner if you seperate commits to the code runners and commits to the book.
 ```
 
 ## Tips and Tricks
+
+- Use tags for your MLFlow runs for controlling 'publication worthy' runs and for when you want to include multiple runs in the same document.
+- It's possible to build only single files with Jupyter Book, or a hierarchy of files into one document.
 
 ### PDF and LaTeX
 The default output format of Jupyter Book is the html page you are probably look at now. For PDF and Latex, see <https://jupyterbook.org/advanced/pdf.html>, but here's the essentials:
@@ -44,6 +47,6 @@ The default output format of Jupyter Book is the html page you are probably look
 
 PDF ouput is still work in progress from Jupyter Book and not that stable. I personally think the Latex PDF looks better, but it's difficult to create a document that can build consistent-looking html pages and pdf latex both from the same source. Unfortunately I haven't found if it's possible to apply your own latex pre-amble to any build, and this would definitely be a requirement for me. The pdflatex route goes through sphinx, which makes all your pdf's look like not-so-crisp shinx documentation, and the latex source is full of sphinx-specific macro's. As I said in my introduction, if pdf and Latex are your primary formats, go for R Bookdown instead, my guide for that should not be long behind this one.
 
-### Project Organization
-- suggestions about the workflow in a project. Multiple documents, literal programming, git repos, etc.
+
+
 
