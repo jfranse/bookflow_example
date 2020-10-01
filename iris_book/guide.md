@@ -45,7 +45,11 @@ The default output format of Jupyter Book is the html page you are probably look
 - **pdf straight from html**: to setup once on your system run `pip install pyppeteer & pyppeteer-install`, then `jupyter-book build mybook/ --builder htmlpdf` 
 - **pdf through Latex**: if you have a Latex installation, simply do `jupyter-book build mybook/ --builder pdflatex`
 
-PDF ouput is still work in progress from Jupyter Book and not that stable. I personally think the Latex PDF looks better, but it's difficult to create a document that can build consistent-looking html pages and pdf latex both from the same source. Unfortunately I haven't found if it's possible to apply your own latex pre-amble to any build, and this would definitely be a requirement for me. The pdflatex route goes through sphinx, which makes all your pdf's look like not-so-crisp shinx documentation, and the latex source is full of sphinx-specific macro's. As I said in my introduction, if pdf and Latex are your primary formats, go for R Bookdown instead, my guide for that should not be long behind this one.
+PDF ouput is currently still work in progress from Jupyter Book and reportedly not that stable. I personally think the Latex PDF looks better, but it's difficult to create a document that can build consistent-looking html pages and pdf latex both from the same source. 
+
+Unfortunately I haven't found if it's possible to apply your own latex pre-amble to any build, and this would definitely be a requirement for me. The pdflatex route goes through sphinx, which makes all your pdf's look like not-so-crisp shinx documentation, and the latex source is full of sphinx-specific macro's. Although you can provide your own custom CSS or javascript styles.  
+
+As I said in my introduction, if pdf and Latex are your primary formats, go for R Bookdown instead, my guide for that should not be long behind this one.
 
 
 

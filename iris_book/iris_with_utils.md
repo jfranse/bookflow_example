@@ -90,8 +90,12 @@ helper.glue_model_reference_metadata('int_meta_data2')
 ## Appendix
 ### Internal Metadata
 
-Here we include metadata about the run whose details were included in the above document. This is useful information for cross-referencing when in the future you or someone else reads, for example, an old version of this document.
+Here we include metadata about the run whose details were included in the above document. This is useful information, for example, for cross-referencing or reproducibility when in the future you or someone else reads an old version of this document.
 
 ```{glue:figure} int_meta_data2
 :name: int_meta_data2
+```
+
+```{code-cell} ipython3
+
 ```

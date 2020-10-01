@@ -16,4 +16,4 @@ Some of the existing tools to convert jupyter notebooks to slides may help, but 
 
 ## Collaborating with Overleaf
 
-Apparently since I left academia lots of people started using overleaf to collaborate on their LaTeX documents. I've read you can sync overleaf with github repo's, so there might be a way to do this. Updating towards overleaf will be easier than getting the changing from overleaf into the source, since the latex files are *created* by Jupyter Book. It will probably require some work to figure this out as well.
+Apparently since I left academia lots of people started using overleaf to collaborate on their LaTeX documents. I've read you can sync overleaf with github repo's, so there might be a way to do this. Updating towards overleaf will be easier than getting the changes from overleaf into the source, since the latex files are *created* by Jupyter Book. It will probably require some work to figure this out as well.
