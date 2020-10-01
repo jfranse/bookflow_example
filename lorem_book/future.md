@@ -1,12 +1,5 @@
 # BookDown Limitations and Future Plans
 
-## TODO'S BEFORE PUBLISHING
-
-- check out pdf and latex export
-- write something about Literal Programming. If I'm seperating the code and the document, I'm sort of going away from Literal Programming. Perhaps if Jupter Book has really good caching, it may also understand that not all results have to be re-run? Hmm...
-- suggestions about the workflow in a project. Multiple documents, literal programming, git repos, etc.
-- something about other solutions to make notebooks actually nice (and perhaps are also better at literal programming)
-
 ## Literal Programming
 
 Literal Programming (sometimes also known as Literal Statistical Programming) is the principle that your code and documentation are the same file, and specifically that the document is written in natural language following human logical flow, interspersed with the code. Yes, notebooks (mathematica and jupyter) are examples of this. 
