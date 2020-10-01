@@ -59,7 +59,7 @@ We have trained a {glue:text}`algo` model on the Iris dataset. The parameters us
 ````
 
 ```{margin}
-Code by [https://www.kaggle.com/chungyehwang/scikit-learn-classifiers-on-iris-dataset]
+Code by <https://www.kaggle.com/chungyehwang/scikit-learn-classifiers-on-iris-dataset>
 ```
 
 +++
