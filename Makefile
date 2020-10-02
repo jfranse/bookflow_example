@@ -1,5 +1,8 @@
 .PHONY: book
 
+# some custom shortcuts
+# the myst and config recipes utilize the bookflow utilities CLI
+
 book:
 	jupyter-book build iris_book/
 
