@@ -1,4 +1,4 @@
-# BookFlow - Jupyter-book and MLFlow - A match made in heaven
+# BookFlow - MLFlow and Programmable Books
 
 This is something I've been wanting to create for a long time. Only this year I've really started looking into it, and quite recently my enthusiasm was sparked anew by the release of Jupyter Book. So here it is, and I dub thee "BookFlow"!
 
