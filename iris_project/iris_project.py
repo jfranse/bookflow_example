@@ -87,7 +87,7 @@ if __name__ == "__main__":
     notes = "first try at SVC, because I read in the literature it could be better in my case"
     tags = {"valid": True}
 
-    mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
+    mlflow.set_tracking_uri('iris_project/mlruns')
     mlflow.set_experiment('iris')
 
     run_name = f'iris_{algo}'
