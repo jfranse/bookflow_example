@@ -8,7 +8,7 @@ BookFlow is a set of tools and a workflow in order to track and log code runs se
 If you are looking at this repository, you are either interested in the exact code I used in this example, or you want to use it to set up your own BookFlow.
 
 ### The code
-The directory `iris_book` contains the actual project code. It is a very straightforward example (adapted from <https://www.kaggle.com/chungyehwang/scikit-learn-classifiers-on-iris-dataset>).
+The directory `iris_book` contains the actual project code. It is a very straightforward example (adapted from [this kaggle kernel](https://www.kaggle.com/chungyehwang/scikit-learn-classifiers-on-iris-dataset)).
 
 Run the python script that is in this directory from the root of this repository, and the mlflow runs will be stored in `iris_project/mlruns`. 
 
@@ -19,4 +19,4 @@ The directory `iris_book` contains all the content and configs of the document. 
 
 The `iris_with_utils` notebook requires the bookflow utilities package, which can be found [here](https://github.com/jfranse/bookflow_utils). 
 
-To build the book run `jupyter-book build iris_book` from the repository root, or use the shortcut `make book` as defined in the Makefile. The produced book can be found in the directory `_build/html`.  
+To build the book run `jupyter-book build iris_book/` from the repository root, or use the shortcut `make book` as defined in the Makefile. The produced book can be found in the directory `_build/html`.  
