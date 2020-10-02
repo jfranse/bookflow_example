@@ -17,6 +17,6 @@ Adapt the parameters, and mlflow tags and notes for the run at the top of the `"
 ### The document
 The directory `iris_book` contains all the content and configs of the document. Some of the `.md` files are actually MyST notebooks and can be opened with Jupyter Notebook if you have jupytext installed. Saving them from Jupyter Notebook will create are corresponding synced `.ipynb` file. 
 
-The `iris_with_utils` notebook requires the bookflow utilities package, which can be found [here](). 
+The `iris_with_utils` notebook requires the bookflow utilities package, which can be found [here](https://github.com/jfranse/bookflow_utils). 
 
 To build the book run `jupyter-book build iris_book` from the repository root, or use the shortcut `make book` as defined in the Makefile. The produced book can be found in the directory `_build/html`.  
