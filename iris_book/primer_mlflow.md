@@ -143,7 +143,7 @@ notes = "I think an knn will work better"
 # I'm reminding myself that this is not a serious run (but a test for example)
 tags = {"valid": False} 
 # set location to save the run data
-mlflow.set_tracking_uri('/home/jeroenf/Projects/bookflow/iris_project/mlruns')
+mlflow.set_tracking_uri('../iris_project/mlruns')
 # name of my experiment(= grouping of runs)
 mlflow.set_experiment('iris')
 

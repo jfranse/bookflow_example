@@ -39,7 +39,11 @@ mlflow.set_tracking_uri('../iris_project/mlruns')
 experiment_name = 'iris'
 exp_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
 
-latest_run = mlflow.get_run(mlflow.search_runs(experiment_ids=[exp_id], max_results=1).loc[0].run_id)
+latest_run = mlflow.get_run(
+    mlflow.search_runs(
+        experiment_ids=[exp_id], max_results=1, filter_string="tags.valid='True'"
+    ).loc[0].run_id
+)
 
 glue('algo', latest_run.data.params['algo'])
 glue('acc', latest_run.data.metrics['acc_test'])

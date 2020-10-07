@@ -1,4 +1,4 @@
-# BookDown Limitations and Future Plans
+# BookFlow Limitations and Future Plans
 
 ## Literal Programming
 
